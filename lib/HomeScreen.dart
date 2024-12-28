@@ -1,7 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:eventmanagementapp/My DesignsBday.dart';
-import 'package:eventmanagementapp/MyDesigns.dart';
+import 'package:eventmanagementapp/MyDesigns/My%20DesignsBday.dart';
+import 'package:eventmanagementapp/MyDesigns/MyDesigns.dart';
 import 'package:eventmanagementapp/ProfileScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -61,7 +61,7 @@ class Homescreens extends StatelessWidget {
     'Wedding Ceremony',
     'Business Seminar',
     'Graduation Party',
-    'Shop Inaugration'
+    'Shop Inauguration'
   ];
 
   @override
@@ -146,6 +146,10 @@ class Homescreens extends StatelessWidget {
                                               'Graduation Party')
                                             Navigator.pushNamed(
                                                 context, 'Graduation Template');
+                                          else if (eventNames[index] ==
+                                              'Shop Inauguration')
+                                            Navigator.pushNamed(
+                                                context, 'Shop Inauguration Template');
                                         },
                                         child: Text("Create",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
                                   ))
@@ -229,13 +233,25 @@ class Homescreens extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            Container(
+                              //height: 350,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      'lib/assets/Images/Past Events/ShopInauguration.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
                           ],
                           options: CarouselOptions(
                             enlargeCenterPage: true,
                             height: MediaQuery.of(context).size.height/2.3,
                             aspectRatio: 4/5,
                             viewportFraction: 0.53,
-                            //autoPlay: true
+                            autoPlay: true
                           ),
                         ),
                       ],

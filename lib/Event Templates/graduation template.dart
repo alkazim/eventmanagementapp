@@ -8,7 +8,7 @@ class GraduationTemplate extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           leading: IconButton(onPressed: (){
-            Navigator.pop(context);
+            Navigator.pushNamed(context, 'Home Screen');
           }, icon: Icon(Icons.arrow_back_ios_new_outlined,color: Colors.blue,))),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -21,7 +21,9 @@ class GraduationTemplate extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5))),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'EditGraduation');
+                    },
                     child: Text(
                       "Edit",
                       style: TextStyle(fontSize: 16),

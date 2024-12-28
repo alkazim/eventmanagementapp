@@ -44,6 +44,12 @@ dependencies:
   carousel_slider: ^5.0.0
   async: ^2.11.0
   image_picker: ^1.1.2
+  screenshot: ^3.0.0
+  gal: ^2.3.0
+  permission_handler: ^11.3.1
+  http: ^1.2.2
+  introduction_screen: ^3.1.14
+
 
 dev_dependencies:
   flutter_test:
@@ -54,7 +60,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -88,6 +94,11 @@ flutter:
      - lib/assets/Images/Past Events/Business Seminar.jpg
      - lib/assets/Images/Past Events/Graduation Day.jpg
      - lib/assets/Images/Past Events/Wedding Ceremony.jpg
+     - lib/assets/Images/introScreen/create stunning designs.jpg
+     - lib/assets/Images/introScreen/plan for every occasion.jpg
+     - lib/assets/Images/introScreen/welcome to the app.jpg
+     - lib/assets/Images/Past Events/ShopInauguration.jpg
+     - lib/assets/Images/Event Templates/Grand Opening Invitation Template.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 

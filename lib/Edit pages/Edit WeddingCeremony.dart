@@ -18,8 +18,11 @@ class EditWeddingCeremony extends StatelessWidget {
   String? mail = FirebaseAuth
       .instance.currentUser!.email;
 
+  String? docid;
 
-  void add_details(context) async{
+
+
+  void add_details(context,docid) async{
     final data ={
       "Bride":Bride_controller.text,
       "Date":Date_controller.text,
@@ -29,8 +32,27 @@ class EditWeddingCeremony extends StatelessWidget {
       "Place":Place_controller.text,
         "Time":Time_controller.text,
       "Mail":mail,
-      "Event Highlights":EventHighlights_controller.text
-    }; await Wedding.add(data);
+      "Event Highlights":EventHighlights_controller.text,
+      "Title":'Wedding of $Bride_controller and $Groom_controller',
+      "Status":'pending'
+    };
+    var querySnapshot = await Wedding.get();
+    int documentCount = querySnapshot.docs.length;
+
+    // Loop through each document in the collection
+    for (int i = 0; i < documentCount; i++) {
+      var doc = querySnapshot.docs[i];
+
+      // Check if the 'Email' field in the document matches the current user's email
+      if (doc['Email'] == mail) {
+        // If a document with the same email is found, update the document
+        docid = doc.id;  // Get the document ID for updating
+        await Wedding.doc(docid).update(data);  // Update the document
+        print('Document with the same email found. Updated document: $docid');
+        return;  // Exit the function after updating the document
+      }
+    }
+    await Wedding.add(data);
   }
 
   @override
@@ -67,7 +89,7 @@ class EditWeddingCeremony extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5))),
                     onPressed: () {
-                      add_details(context);
+                      add_details(context,docid);
                       Navigator.pushNamed(context, 'Home Screen');
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           duration: Duration(seconds: 3),
@@ -165,30 +187,34 @@ class EditWeddingCeremony extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                controller: Month_controller,
-                decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    disabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    labelText: "Month"),
+              Expanded(
+                child: TextFormField(
+                  controller: Month_controller,
+                  decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      disabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      labelText: "Month"),
+                ),
               ),
               SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                controller: Place_controller,
-                decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    disabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    labelText: "Place"),
+              Expanded(
+                child: TextFormField(
+                  controller: Place_controller,
+                  decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      disabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      labelText: "Place"),
+                ),
               ),
               SizedBox(
                 height: 12,

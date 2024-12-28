@@ -9,7 +9,7 @@ class Businessseminar extends StatelessWidget {
       appBar: AppBar(
           leading: IconButton(
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, 'Home Screen');
               },
               icon: Icon(Icons.arrow_back_ios_new_outlined))),
       bottomNavigationBar: Padding(
@@ -24,7 +24,7 @@ class Businessseminar extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5))),
                     onPressed: () {
-                      Navigator.pushNamed(context, 'EditBusinessSeminar');
+                      Navigator.pushNamed(context, 'EditBusinessSeminars');
                     },
                     child: Text(
                       "Edit",
