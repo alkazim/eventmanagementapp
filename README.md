@@ -9,6 +9,18 @@ updates.
 Includes admin approval for download requests, adding an extra layer of
 control and security.
 
+## Features  
+- Event scheduling with title, description, and date.  
+- Customizable themes with color options.  
+- Admin-controlled download approval workflows.  
+- Firebase integration for real-time data storage.  
+- User authentication with Firebase.
+
+## Technologies Used  
+- Flutter  
+- Firebase Authentication and Firestore  
+- SharedPreferences
+- 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
