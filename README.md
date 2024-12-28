@@ -1,6 +1,13 @@
 # eventmanagementapp
 
-A new Flutter project.
+A comprehensive app for organizing and managing various events like
+weddings, birthdays, and seminars.
+Allows users to schedule and manage events with customizable themes
+and categories.
+Integrated with Firebase for seamless data management and real-time
+updates.
+Includes admin approval for download requests, adding an extra layer of
+control and security.
 
 ## Getting Started
 
